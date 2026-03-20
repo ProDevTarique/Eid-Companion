@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eid Mubarak - Sunnahs of Eid, Namaz Tariqa and Best Wishes">
+    <meta name="theme-color" content="#050505">
+    
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="EID MUBARAK // SYSTEM OVERRIDE">
+    <meta property="og:description" content="Taqabbalallahu Minna wa Minkum. Eid ki Namaz ka Tariqa aur Sunnatein.">
+    <meta property="og:type" content="website">
+
+    <title>Eid Mubarak | Cyberpunk Edition</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Google Fonts: Orbitron for headers, Rajdhani for text, Share Tech Mono for code vibes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-cyan': '#00f3ff',
+                        'neon-pink': '#ff003c',
+                        'neon-yellow': '#fcee0a',
+                        'cyber-dark': '#050505',
+                        'cyber-gray': '#121212',
+                    },
+                    fontFamily: {
+                        'cyber': ['Orbitron', 'sans-serif'],
+                        'body': ['Rajdhani', 'sans-serif'],
+                        'mono': ['"Share Tech Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </style>
+
+    <style>
+        /* Cyberpunk Global Styles */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Cyber Grid Background */
+        .cyber-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Neon Glow Utilities */
+        .glow-cyan {
+            text-shadow: 0 0 5px #00f3ff, 0 0 10px #00f3ff;
+        }
+        .glow-pink {
+            text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c;
+        }
+        .glow-yellow {
+            text-shadow: 0 0 5px #fcee0a, 0 0 10px #fcee0a;
+        }
+        
+        .box-glow-cyan {
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+        .box-glow-pink {
+            box-shadow: 0 0 10px rgba(255, 0, 60, 0.2), inset 0 0 10px rgba(255, 0, 60, 0.1);
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            color: #fff;
+            font-weight: 900;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff003c;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00f3ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(70px, 9999px, 76px, 0); }
+            20% { clip: rect(29px, 9999px, 16px, 0); }
+            40% { clip: rect(76px, 9999px, 3px, 0); }
+            60% { clip: rect(42px, 9999px, 78px, 0); }
+            80% { clip: rect(15px, 9999px, 13px, 0); }
+            100% { clip: rect(53px, 9999px, 5px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(3px, 9999px, 85px, 0); }
+            40% { clip: rect(90px, 9999px, 5px, 0); }
+            60% { clip: rect(12px, 9999px, 60px, 0); }
+            80% { clip: rect(80px, 9999px, 20px, 0); }
+            100% { clip: rect(40px, 9999px, 90px, 0); }
+        }
+
+        /* UI Accents */
+        .cyber-border {
+            position: relative;
+            background: #121212;
+            border: 1px solid #333;
+        }
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px;
+            width: 20px; height: 20px;
+            border-top: 2px solid #00f3ff;
+            border-left: 2px solid #00f3ff;
+        }
+        .cyber-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px;
+            width: 20px; height: 20px;
+            border-bottom: 2px solid #ff003c;
+            border-right: 2px solid #ff003c;
+        }
+        
+        .cyber-border-alt::before {
+            border-top: 2px solid #ff003c;
+            border-left: 2px solid #ff003c;
+        }
+        .cyber-border-alt::after {
+            border-bottom: 2px solid #00f3ff;
+            border-right: 2px solid #00f3ff;
+        }
+        
+        .cyber-border-yellow::before {
+            border-top: 2px solid #fcee0a;
+            border-left: 2px solid #fcee0a;
+        }
+        .cyber-border-yellow::after {
+            border-bottom: 2px solid #fcee0a;
+            border-right: 2px solid #fcee0a;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 50;
+            position: fixed;
+            pointer-events: none;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,243,255,0.1) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-neon-pink selection:text-white pb-20">
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const RulesList = [
+            "Perform ghusl before going to the Eid prayer, as this is a recommended Sunnah practiced by the companions.",
+            "Wear your best clothes on Eid; men are also encouraged to apply perfume.",
+            "Eat an odd number of dates before going out for Eid prayer (for Eid al-Fitr).",
+            "Attend the Eid prayer, as it is a highly important act of worship.",
+            "Women are encouraged to attend, even menstruating women, but they should not perform the prayer.",
+            "Recite the Takbir from the night of Eid until the Imam begins the prayer.",
+            "Congratulate one another, for example: \"Taqabbalallahu minna wa minkum\"",
+            "Take a different route when returning home from the Eid prayer.",
+            "It is permissible to pray two rak'ah after returning home."
+        ];
+
+        const EidTemplate = () => {
+            return (
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+                    
+                    {/* Header Banner */}
+                    <div className="border-l-4 border-neon-cyan bg-cyber-gray/80 p-6 mb-10 relative overflow-hidden backdrop-blur-sm box-glow-cyan">
+                        <div className="absolute top-0 right-0 p-2 opacity-30 font-mono text-neon-cyan text-xs">
+                            SYS.MSG.01 // EID_PROTO
+                        </div>
+                        <h2 className="font-mono text-neon-yellow text-sm md:text-base mb-2 tracking-[0.2em] uppercase glow-yellow">
+                            Status: Blessed
+                        </h2>
+                        <h1 className="font-cyber text-4xl md:text-6xl text-white mb-4 tracking-wider uppercase glitch glow-cyan" data-text="EID MUBARAK">
+                            EID MUBARAK
+                        </h1>
+                        <p className="font-mono text-neon-pink text-lg md:text-xl border-t border-gray-800 pt-4 glow-pink">
+                            &gt; Taqabbalallahu Minna wa Minkum_
+                        </p>
+                    </div>
+
+                    {/* Event Details Section */}
+                    <div className="mb-16">
+                        <div className="cyber-border cyber-border-alt bg-cyber-gray/90 p-6 md:p-8 relative box-glow-pink">
+                            <div className="absolute top-0 right-0 bg-neon-pink text-black font-mono text-xs px-2 py-1 font-bold">
+                                LOC // UPLINK
+                            </div>
+                            <h3 className="font-cyber text-2xl md:text-3xl text-white mb-6 tracking-widest uppercase glow-pink">
+                                EID SALAH
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="bg-black/60 p-4 border border-neon-cyan/30 flex flex-col justify-center">
+                                    <p className="font-mono text-neon-cyan text-sm uppercase mb-1 tracking-widest">Time</p>
+                                    <p className="font-body text-2xl md:text-3xl text-white font-bold glow-cyan">9:30 a.m.</p>
+                                </div>
+                                <div className="bg-black/60 p-4 border border-neon-yellow/30 flex flex-col justify-center">
+                                    <p className="font-mono text-neon-yellow text-sm uppercase mb-1 tracking-widest">Venue</p>
+                                    <p className="font-body text-xl md:text-2xl text-white font-bold glow-yellow leading-tight">Masjid Khairuddin,<br/>Hall Gate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Sunnah Section */}
+                    <div className="mb-16">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="h-0.5 flex-grow bg-neon-cyan/30"></div>
+                            <h3 className="font-cyber text-2xl text-white tracking-widest uppercase glow-cyan">
+                                Protocol: Sunnah
+                            </h3>
+                            <div className="h-0.5 flex-grow bg-neon-cyan/30"></div>
+                        </div>
+
+                        <div className="grid gap-4 md:grid-cols-1">
+                            {RulesList.map((rule, index) => (
+                                <div key={index} className="cyber-border bg-cyber-gray/90 p-5 flex items-start gap-4 hover:bg-[#1a1a1a] transition-colors duration-300">
+                                    <div className="font-mono text-neon-cyan text-xl md:text-2xl font-bold mt-[-2px] min-w-[40px]">
+                                        [{String(index + 1).padStart(2, '0')}]
+                                    </div>
+                                    <p className="text-gray-200 text-lg md:text-xl font-medium leading-relaxed">
+                                        {rule}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Namaz ka Tariqa Section */}
+                    <div className="mb-16">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="h-0.5 flex-grow bg-neon-yellow/30"></div>
+                            <h3 className="font-cyber text-2xl text-white tracking-widest uppercase glow-yellow flex items-center gap-3">
+                                <span className="text-3xl">🕌</span> Eid ki Namaz ka Masnoon Tariqa
+                            </h3>
+                            <div className="h-0.5 flex-grow bg-neon-yellow/30"></div>
+                        </div>
+
+                        {/* Ibtida (Start) */}
+                        <div className="cyber-border cyber-border-yellow bg-cyber-gray/90 p-6 md:p-8 mb-6">
+                            <h4 className="font-cyber text-2xl text-neon-yellow mb-6 glow-yellow">1️⃣ Namaz ki Ibtida:</h4>
+                            
+                            <div className="space-y-6">
+                                <div className="bg-black/40 p-4 border-l-2 border-gray-600">
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2">Imam logon ko do rakat namaz padhata hai.</p>
+                                    <p className="text-lg md:text-xl text-gray-200">Nabi ﷺ ne Eid ki namaz do rakat ada farmayi.</p>
+                                    <span className="font-mono text-sm text-neon-cyan/70 mt-2 block">📖 (Sahih al-Bukhari: 956, Sahih Muslim: 889)</span>
+                                </div>
+
+                                <div className="bg-black/60 p-5 border border-neon-cyan/20 rounded-sm">
+                                    <h5 className="font-cyber text-xl text-neon-cyan mb-2">Pehli Rakat:</h5>
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2">Takbeer-e-tahreema ke baad 7 za'id takbeerein kahi jati hain.</p>
+                                    <span className="font-mono text-sm text-neon-cyan/70 block mb-4">📖 (Sunan Abi Dawood: 1149)</span>
+                                    
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2"><span className="text-neon-pink font-bold">Phir:</span> Surah Al-Fatiha padhi jati hai.<br/>Us ke baad Surah Al-A'ala ya Surah Qaaf ki tilawat ki jati hai.</p>
+                                    <span className="font-mono text-sm text-neon-cyan/70 block">📖 (Sahih Muslim: 878 / 891)</span>
+                                </div>
+
+                                <div className="bg-black/60 p-5 border border-neon-pink/20 rounded-sm">
+                                    <h5 className="font-cyber text-xl text-neon-pink mb-2">Doosri Rakat:</h5>
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2">Doosri rak'at ke liye khadhe hote waqt takbeer kahi jati hai.</p>
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2">Khada hone ke baad 5 za'id takbeerein kahi jati hain.</p>
+                                    <span className="font-mono text-sm text-neon-cyan/70 block mb-4">📖 (Sunan Abi Dawood: 1149 — Sahih)</span>
+                                    
+                                    <p className="text-lg md:text-xl text-gray-200 mb-2"><span className="text-neon-cyan font-bold">Phir:</span> Surah Al-Fatiha padhi jati hai.<br/>Us ke baad Surah Al-Ghashiya ya Surah Al-Qamar (Iqtara bat-is-sa’ah wan shaqqal qamar) ki tilawat ki jati hai.</p>
+                                    <span className="font-mono text-sm text-neon-cyan/70 block">📖 (Sahih Muslim: 878 / 891)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Takmeel (Completion) */}
+                        <div className="cyber-border bg-cyber-gray/90 p-6 md:p-8 mb-6">
+                            <h4 className="font-cyber text-2xl text-neon-cyan mb-4 glow-cyan">2️⃣ Namaz ki Takmeel:</h4>
+                            <p className="text-lg md:text-xl text-gray-200 mb-2">Is ke baad aam namaz ki tarah ruku, sajda aur tashahhud mukammal kiye jate hain.</p>
+                            <p className="text-lg md:text-xl text-gray-200">Aakhir mein salaam pher diya jata hai.</p>
+                        </div>
+
+                        {/* Notes */}
+                        <div className="bg-[#1a1a1a] border-l-4 border-neon-yellow p-5 relative">
+                            <div className="absolute top-0 right-0 bg-neon-yellow text-black font-mono text-xs px-3 py-1 font-bold">
+                                📌 NOTE
+                            </div>
+                            <ul className="space-y-4 mt-2">
+                                <li className="text-lg text-gray-300">
+                                    <span className="text-neon-yellow mr-2">•</span>Yeh namaz baghair azaan aur iqamat ke ada ki jati hai.
+                                    <span className="font-mono text-sm text-gray-500 block ml-5 mt-1">📖 (Sahih al-Bukhari: 960)</span>
+                                </li>
+                                <li className="text-lg text-gray-300">
+                                    <span className="text-neon-yellow mr-2">•</span>Namaz ke baad imam khutbah deta hai.
+                                    <span className="font-mono text-sm text-gray-500 block ml-5 mt-1">📖 (Sahih al-Bukhari: 962)</span>
+                                </li>
+                                <li className="text-lg text-gray-300">
+                                    <span className="text-neon-yellow mr-2">•</span>Dono rakaton mein zaid takbeeron ki majmooi tadaad 12 hai.
+                                    <span className="font-mono text-sm text-gray-500 block ml-5 mt-1">📖 (Sunan Abi Dawood: 1150)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Terminal Hadith Section */}
+                    <div className="mb-16">
+                        <div className="bg-black border border-neon-yellow/50 p-6 md:p-8 relative shadow-[0_0_15px_rgba(252,238,10,0.15)] rounded-sm">
+                            <div className="absolute top-0 left-0 bg-neon-yellow text-black font-mono text-xs px-2 py-1 font-bold">
+                                DATABANK // HADITH
+                            </div>
+                            <p className="font-mono text-neon-yellow text-lg md:text-2xl mt-4 leading-relaxed glow-yellow">
+                                <span className="text-white opacity-50 mr-2">&gt;</span>
+                                "Whoever revives my Sunnah has loved me, and whoever loves me will be with me in Paradise."
+                            </p>
+                            <div className="mt-6 flex items-center justify-end border-t border-gray-800 pt-4">
+                                <span className="font-cyber text-neon-cyan text-sm md:text-base tracking-widest glow-cyan">
+                                    // The Prophet Muhammad (ﷺ)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Footer Message */}
+                    <div className="cyber-border bg-cyber-gray/80 p-8 md:p-10 text-center relative backdrop-blur-sm">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-neon-pink shadow-[0_0_10px_#ff003c]"></div>
+                        
+                        <p className="font-body text-xl md:text-2xl text-gray-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+                            Assalamo Alaikum, May Allah SWT bless you and your family with health, wealth, happiness and prosperity. Succeeded you in this world and the hereafter. Accept all our ibadah and forgive all sins. Allahumma Ameen <span className="text-neon-cyan glow-cyan">🤍</span>.
+                        </p>
+                        
+                        <div className="inline-block border-t border-gray-800 pt-6 px-12">
+                            <p className="font-mono text-gray-500 mb-2 uppercase tracking-widest text-sm">Logging off // Best Regards</p>
+                            <div className="font-cyber text-2xl md:text-3xl text-white tracking-widest">
+                                MD. TARIQUE ATIQUE 
+                                <span className="block mt-2 text-neon-pink glow-pink text-lg md:text-xl font-mono uppercase">
+                                    & Family
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<EidTemplate />);
+    </script>
+</body>
+</html>
